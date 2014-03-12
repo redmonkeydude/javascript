@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>By value or by reference</title>
+    <script type="text/javascript">
+        //primitives are passed by value
+        //objects passed by reference (kinda)
+
+
+        //This will change the actual value of the car make because the objects property is explicitely changed
+        function myFunc(theObject) {
+            theObject.make = "Toyota";
+        }
+
+        var mycar = {make: "Honda", model: "Accord", year: 1998},
+                x,
+                y;
+
+        x = mycar.make;     // x gets the value "Honda"
+        console.log("Before", x);
+        myFunc(mycar);
+        y = mycar.make;     // y gets the value "Toyota"
+        // (the make property was changed by the function)
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

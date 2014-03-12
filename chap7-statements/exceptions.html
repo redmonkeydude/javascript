@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>exceptions</title>
+
+    <script type="text/javascript">
+
+        //custom exception class
+        function UserException(message){
+            this.message = message;
+            this.name="UserException";
+        }
+
+        //shows in the console log
+        UserException.prototype.toString = function(){
+            return this.name + ': SUCKS#"' + this.message + '"';
+        }
+
+//        throw new UserException("Value too high");
+
+        function getMonthName (mo) {
+            mo=mo-1; // Adjust month number for array index (1=Jan, 12=Dec)
+            var months=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+            if (months[mo] != null) {
+                return months[mo]
+            } else {
+                throw "Exception: InvalidMonthNo";          //throw keyword is used her. Throwing exception in try block
+            }
+        }
+
+        try {
+            monthName = getMonthName(11);
+            console.log(monthName);
+
+        }catch(e){
+            montName = "unknown";
+            console.log(e);
+        }
+
+
+
+
+
+    </script>
+
+</head>
+<body>
+
+
+exceptions
+
+
+</body>
+</html>

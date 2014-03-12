@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>checkdata</title>
+    <script type="text/javascript">
+        window.onload=function(){
+
+
+            checkData();
+
+
+
+        }
+
+
+        function checkData(){
+            var form = document.getElementById("form1");
+            if(form){
+                console.log(form);
+                if(document.form1.threeChar.value.legth==3){
+                    return true;
+                }else{
+                    alert("Enter exactly 3 chars. "+document.form1.threeChar.value+" is not valid.");
+                    return false;
+                }
+            }else{
+                console.log("No form!");
+            }
+        }
+
+    </script>
+
+
+
+</head>
+<body>
+    <form id="form1">
+        <div>asdfg</div>
+
+
+    </form>
+</body>
+</html>

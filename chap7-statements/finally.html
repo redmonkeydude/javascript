@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>finally</title>
+
+    <script type="text/javascript">
+
+        function f() {
+            try {
+                alert(0);
+                throw "bogus";
+            } catch(e) {
+                alert(1);
+                return true; // this return statement is suspended until finally block has completed
+                alert(2); // not reachable
+            } finally {
+                alert(3);
+                return false; // overwrites the previous "return"
+                alert(4); // not reachable
+            }
+            // "return false" is executed now
+
+            alert(5); // not reachable
+        }
+        f(); // alerts 0, 1, 3; returns false
+
+
+    </script>
+</head>
+<body>
+finally
+</body>
+</html>

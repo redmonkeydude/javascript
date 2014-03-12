@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+
+        window.onload = function(){
+
+            function forin(obj, obj_name){
+                //iterates through the KEY and VALUE (i denotes the key obj[i] the value
+                //don't iterate Arrays using this since it iterates over user-defined properties also
+                //or correctly user for in
+                var result = "";
+                for (var i in obj){
+                    result += obj_name + "." + i + " = " + obj[i] + "<br>";
+                }
+
+                result += "<hr>";
+                return result;
+            }
+
+            function foreachin(obj){
+//                var sum = 0;
+//                foreach (item in obj){
+//                    sum += item;
+//                }
+//
+//                return sum;
+
+            }
+
+            /*//forin segment
+            var car = {
+                make:"Ford",
+                model:"Mustang"
+            }
+            result = forin(car, "car");
+            document.write(result);
+            */
+
+            var obj = {prop1: 5, prop2: 13, prop3: 8};
+            var arrayObj = [5, 13, 8];
+
+            //foreach is only used for arrays
+            arrayObj.forEach(function(value){
+                console.log(value);
+            })
+
+
+
+        }
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
