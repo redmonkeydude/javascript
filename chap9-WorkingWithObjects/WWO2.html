@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Working with objects 2</title>
+    <script type="text/javascript">
+        //literal notation
+        var myHonda = {color:"red", wheels:4, engine:{cylinders:4, size:2.2}};
+
+        console.log("my Honda", myHonda);
+
+
+        //constructor function
+        function Car(make, model, year, owner){
+            this.make = make;
+            this.model = model;
+            this.year = year;
+            this.owner = owner;
+        }
+
+//        var myCar = new Car("Eagle", "Talon TSi", 1993);
+//
+//        console.log("myCar", myCar);
+//
+//        var kenscar = new Car("nissan", "300zx", 1992);
+//        var randscar = new Car("mazdaa", "miata", 1990);
+
+
+        function Person(name, age, sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+
+        var ken = new Person("Ken Jones", 39, "M");
+        var rand = new Person("Rand McKinnon", 33, "M");
+
+
+        var kenscar = new Car("nissan", "300zx", 1992, ken);
+        var randscar = new Car("mazdaa", "miata", 1990, rand);
+
+        console.log(kenscar);
+        console.log(randscar);
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

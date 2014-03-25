@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Closures</title>
+    <script type="text/javascript">
+
+        var pet = function(name){
+            var getName = function(){
+                return name;
+            }
+
+            return getName;
+        },
+        myPet = pet("Vivie");
+
+        console.log(myPet());
+
+        var createPet = function(name){
+            var sex;
+
+            return {
+                setName:function(newName){
+                    name = newName;
+                },
+                getName: function(){
+                    return name;
+                },
+                getSex: function(){
+                    return sex;
+                },
+                setSex:function(newSex){
+                    if(typeof newSex == "string" && (newSex.toLowerCase() == "male" || newSex.toLowerCase()=="female")){
+                        sex = newSex;
+                    }
+                }
+            }
+        }
+
+        var realPet = createPet("Lily");
+        console.log(realPet.getName());
+        realPet.setName("Oliver");
+        realPet.setSex("male");
+        console.log(realPet.getSex());
+        console.log(realPet.getName());
+
+        var getCode = (function(){
+            var secureCode = "asdc23r";
+            return function(){
+                return secureCode;
+            };
+        })();
+
+        x = getCode();
+        console.log(x);
+
+
+        //arguments to a function are passed like an array-like object
+        //Please note that the arguments variable is "array-like", but not an array. It is array-like in that is has a numbered index and a length property. However, it does not possess all of the array-manipulation methods.
+        function myConcat(seperator){
+            var result = "",
+                    i;
+
+            for(i = 1; i < arguments.length; i++){
+                result += arguments[i] + seperator;
+            }
+
+            return result;
+        }
+
+        console.log(myConcat(",", "red", "orange", "blue"));
+        console.log(myConcat("; ", "elephant", "giraffe", "lion", "cheetah"));
+        console.log(myConcat(". ", "sage", "basil", "oregano", "pepper", "parsley"));
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

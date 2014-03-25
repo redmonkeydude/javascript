@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Objects 1</title>
+    <script type="text/javascript">
+        //prototype vs. class based
+
+        function Employee(name, dept){
+            this.name = name || "";
+            this.dept = dept || "general";
+        }
+
+        function Manager(){
+            this.reports = [];
+        }
+
+        Manager.prototype = new Employee;
+
+
+        function WorkerBee(name, dept, projs){
+            this.base = Employee;
+            this.base(name, dept);
+            this.projects = projs || [];
+        }
+
+        WorkerBee.prototype = new Employee;
+
+        function SalesPerson(){
+            this.dept = "sales";
+            this.quota = 100;
+        }
+
+        SalesPerson.prototype = new WorkerBee;
+
+        function Engineer(name, projs, mach){
+            WorkerBee.call(this, name, "engineering", projs);
+            this.dept = "engineering";
+            this.machine = mach || "";
+        }
+
+        Engineer.prototype = new WorkerBee;
+
+        Employee.prototype.specialty = "none";
+
+        Engineer.prototype.specialty = "coding";
+
+        var jim = new Employee("jim", "marketing");
+        console.log(jim);
+
+        var sally = new Manager("sally");
+        console.log(sally);
+
+        var mark = new WorkerBee("Smith, Mark", "training",["javascript"]);
+        console.log(mark);
+
+        var fred = new SalesPerson("fred");
+        console.log(fred);
+
+        var jane = new Engineer("Doe, Jane", ["navigator", "javascript"], "belau");
+        console.log(jane);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

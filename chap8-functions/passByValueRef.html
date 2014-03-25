@@ -8,7 +8,7 @@
 
 
         //This will change the actual value of the car make because the objects property is explicitely changed
-        function myFunc(theObject) {
+        function myFuncReference(theObject) {
             theObject.make = "Toyota";
         }
 
@@ -17,10 +17,82 @@
                 y;
 
         x = mycar.make;     // x gets the value "Honda"
-        console.log("Before", x);
-        myFunc(mycar);
+        console.log("Before (pass by reference): ", x);
+        myFuncReference(mycar);
         y = mycar.make;     // y gets the value "Toyota"
+        console.log("After (pass by reference): ", y)
         // (the make property was changed by the function)
+
+
+        function myFunc(theObject){
+            theObject = {make: "Toyota", model: "whatever", year: 2002}
+        }
+
+        mycar.make = "Honda";
+        console.log("Before: ", x);
+        myFunc(mycar);
+        y = mycar.make;
+        console.log("After: ", y);
+
+
+
+
+        var square = function(number){return number*number};
+        var sq = square(4);
+        console.log("square: ", sq);
+
+
+        var factorial = function fac(n){return n<2?1:n*fac(n-1)};
+        console.log("factorial 10: ", factorial(10));
+
+        //map a initial key to value
+        function map(f, a){
+            var result = [],
+                    i;
+
+            for(i=0; i != a.length; i++)
+                result[i] = f(a[i]);
+            return result;
+        }
+
+        console.log("mapping: ", map(function(x){return x*x*x}, [0,1,2,5,10]));
+
+//        var myFunc;
+//        if(num==0){
+//            myFunc = function(theObject){
+//                theObject.make = "Toyota";
+//            }
+//        }
+
+        console.log(squareAfter(5));
+        function squareAfter(n){
+            return n*n;
+        }
+
+        var num1 = 20,
+            num2 = 3,
+            name = "Chamahk";
+
+        function multiply(){
+            return num1 * num2;
+        }
+
+        console.log(multiply());
+
+        function getScore(){
+            var num1 = 2,
+                num2 = 3;
+
+            function add(){
+                return name + " scored " + (num1 + num2);
+            }
+
+            return add();
+        }
+
+        console.log(getScore());
+
+
     </script>
 
 </head>

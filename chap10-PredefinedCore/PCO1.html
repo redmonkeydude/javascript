@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predefined Core 1</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            var divs = document.getElementsByTagName('div');
+
+            for (var i = 0, div; div = divs[i]; i++){
+                div.innerHTML = "YO "+i;
+            }
+        }
+
+
+        //Array comprehensions, Shorthand for map and filter functions, only works on mozilla
+        var numbers = [1,2,3,4];
+//        var doubled = [i*  2 for (i of numbers)];
+//        alert(doubled);
+
+
+        var doubled = numbers.map(function(i){
+            return i*2;
+        });
+
+        console.log(doubled);
+
+        //get all evens
+        var numbers = [1,2,3,21,22,30];
+        var filtered = numbers.filter(function(v){
+           return v % 2 ===0;
+        });
+
+        console.log(filtered);
+    </script>
+
+
+</head>
+<body>
+
+    <div class="hello1"></div>
+    <div class="hello2"></div>
+    <div class="hello3"></div>
+    <div class="hello4"></div>
+    <div class="hello5"></div>
+</body>
+</html>
